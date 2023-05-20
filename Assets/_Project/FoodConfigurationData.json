@@ -1,0 +1,20 @@
+{
+  "data": [
+    {
+      "Color": "#000000",
+      "Points": 10
+    },
+    {
+      "Color": "#FFFFFF",
+      "Points": 5
+    },
+    {
+      "Color": "#444444",
+      "Points": 8
+    },
+    {
+      "Color": "#787878",
+      "Points": 30
+    }
+  ]
+}
