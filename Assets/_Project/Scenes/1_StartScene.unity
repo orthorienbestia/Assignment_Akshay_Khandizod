@@ -506,7 +506,7 @@ GameObject:
   - component: {fileID: 1411549450}
   - component: {fileID: 1411549452}
   m_Layer: 5
-  m_Name: HighScoreTxt
+  m_Name: HighScoreText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -530,7 +530,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -45, y: -35}
-  m_SizeDelta: {x: 1000, y: 150}
+  m_SizeDelta: {x: 1000, y: 100}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1411549450
 MonoBehaviour:
