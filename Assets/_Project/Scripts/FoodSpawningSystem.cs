@@ -11,17 +11,24 @@ namespace _Project.Scripts
         [SerializeField]
         private GameObject foodPrefab;
 
+        private int _counter;
+
         private void Start()
         {
-            SpawnRandomFoodItem();
+            // SpawnRandomFoodItem();
         }
 
         [UsedImplicitly]
+        [ContextMenu("Spawn Food Item")]
         public void SpawnRandomFoodItem()
         {
+            _counter++;
+            
             var randomParameter = FoodConfigurationSystem.Instance.Data.GetRandomItem();
 
-            var foodGameObject = Instantiate(foodPrefab);
+            var foodGameObject = Instantiate(foodPrefab, transform);
+            foodGameObject.name = $"Food Item {_counter.ToString()}";
+            
             foodGameObject.GetComponent<FoodItem>().Initialize(randomParameter);
         }
     }
