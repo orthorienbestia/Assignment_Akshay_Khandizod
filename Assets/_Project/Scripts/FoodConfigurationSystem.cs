@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 
-namespace _Project.Scripts.GameScene
+namespace _Project.Scripts
 {
     public class FoodConfigurationSystem : MonoBehaviour
     {

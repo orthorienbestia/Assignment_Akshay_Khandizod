@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-namespace _Project.Scripts.GameScene
+namespace _Project.Scripts
 {
     public class ScoringSystem : MonoBehaviour
     {
