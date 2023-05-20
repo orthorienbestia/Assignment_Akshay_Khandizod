@@ -5,7 +5,7 @@ using Random = UnityEngine.Random;
 // ReSharper disable once CheckNamespace
 namespace Assignment.UtilityScripts
 {
-    public static class ListExtension
+    public static class ListExtensions
     {
         public static T GetRandomItem<T>(this List<T> list)
         {
