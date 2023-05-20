@@ -19,7 +19,7 @@ namespace _Project.Scripts.GameScene
         {
             foreach (var foodParameters in Data)
             {
-                Debug.Log($"Color: {foodParameters.Color} / {foodParameters.GetColorFromHex().ToString()}, Points: {foodParameters.Points}");
+                Debug.Log($"Color: {foodParameters.Color} {foodParameters.GetColorFromHex().ToString()}, Points: {foodParameters.Points.ToString()}");
             }
         }
     }
