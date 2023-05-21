@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace _Project.Scripts
 {
@@ -7,11 +9,22 @@ namespace _Project.Scripts
         [SerializeField] private float movementSpeed = 10f;
         [SerializeField] private float rotationSpeed = 10f;
         private float _currentRotationValue;
+        public void SetRotationValue(int value) => _currentRotationValue = value;
+        private Transform _thisTransform;
+
+        private const string WallTag = "Wall";
+        private const string FoodTag = "Food";
+
+        private void Awake()
+        {
+            _thisTransform = transform;
+        }
+
         private void Update()
         {
             // Moving Forward
-            Vector3 movementDirection = transform.rotation * Vector3.forward;
-            transform.position += movementDirection * (movementSpeed * Time.deltaTime);
+            var movementDirection = _thisTransform.rotation * Vector3.forward;
+            _thisTransform.position += movementDirection * (movementSpeed * Time.deltaTime);
             
             // Rotation
 #if UNITY_EDITOR
@@ -31,10 +44,20 @@ namespace _Project.Scripts
                 }
             }
 #endif
-            //_currentRotationValue = Input.GetAxis("Horizontal");
             transform.Rotate(Vector3.up * (_currentRotationValue * rotationSpeed * Time.deltaTime));
         }
 
-        // public void SetRotationValue(int value) => _currentRotationValue = value;
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.CompareTag(WallTag))
+            {
+                Debug.Log("Collided with wall");
+                SceneManager.LoadScene(0);
+            }
+            else if (other.CompareTag("Food"))
+            {
+                Debug.Log("Food Eaten");
+            }
+        }
     }
 }
