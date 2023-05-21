@@ -55,6 +55,9 @@ namespace _Project.Scripts
             else if (other.CompareTag("Food"))
             {
                 Debug.Log("Food Eaten");
+                var foodItem = other.gameObject.GetComponent<FoodItem>();
+                foodItem.Eat();
+                SnakeGameManager.Instance.onFoodEat.Invoke(foodItem.FoodParameters);
             }
         }
     }

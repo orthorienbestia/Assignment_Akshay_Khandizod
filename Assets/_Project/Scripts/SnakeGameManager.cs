@@ -16,6 +16,8 @@ namespace _Project.Scripts
 
         public UnityEvent onGameEnded;
 
+        public UnityEvent<FoodParameters> onFoodEat;
+
         private void Awake()
         {
             if (Instance != null)

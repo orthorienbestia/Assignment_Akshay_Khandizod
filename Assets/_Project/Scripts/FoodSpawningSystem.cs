@@ -1,6 +1,9 @@
+using System;
+using System.Collections;
 using Assignment.UtilityScripts;
 using JetBrains.Annotations;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace _Project.Scripts
 {
@@ -11,11 +14,13 @@ namespace _Project.Scripts
         [SerializeField]
         private GameObject foodPrefab;
 
+        [SerializeField] private float spawnAreaSide;
+        
         private int _counter;
 
         private void Start()
         {
-            // SpawnRandomFoodItem();
+            StartCoroutine(_SpawnFoodContinuously());
         }
 
         [UsedImplicitly]
@@ -28,8 +33,22 @@ namespace _Project.Scripts
 
             var foodGameObject = Instantiate(foodPrefab, transform);
             foodGameObject.name = $"Food Item {_counter.ToString()}";
-            
+            foodGameObject.transform.position = new Vector3(Random.Range(-spawnAreaSide/2,spawnAreaSide/2),1,Random.Range(-spawnAreaSide/2,spawnAreaSide/2));
             foodGameObject.GetComponent<FoodItem>().Initialize(randomParameter);
+        }
+
+        private void OnDrawGizmosSelected()
+        {
+            Gizmos.DrawCube(transform.position, new Vector3(spawnAreaSide, 0, spawnAreaSide));
+        }
+
+        IEnumerator _SpawnFoodContinuously()
+        {
+            while (true)
+            {
+                SpawnRandomFoodItem();
+                yield return new WaitForSeconds(1);
+            }
         }
     }
 }
