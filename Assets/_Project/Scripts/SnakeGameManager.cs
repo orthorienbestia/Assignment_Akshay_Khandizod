@@ -1,6 +1,7 @@
-using System;
 using JetBrains.Annotations;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 namespace _Project.Scripts
 {
@@ -10,9 +11,20 @@ namespace _Project.Scripts
         [SerializeField] private GameObject birdViewCamera;
 
         private bool _isThirdPersonCameraActive;
+        
+        public static SnakeGameManager Instance { get; private set; }
+
+        public UnityEvent onGameEnded;
 
         private void Awake()
         {
+            if (Instance != null)
+            {
+                Destroy(gameObject);
+                return;
+            }
+            Instance = this;
+            
             ChangeCameraView();
         }
 
@@ -22,6 +34,12 @@ namespace _Project.Scripts
             _isThirdPersonCameraActive = !_isThirdPersonCameraActive;
             thirdPersonCamera.SetActive(_isThirdPersonCameraActive);
             birdViewCamera.SetActive(!_isThirdPersonCameraActive);
+        }
+
+        public void EndGame()
+        {
+            onGameEnded.Invoke();
+            SceneManager.LoadScene(0);
         }
     }
 }

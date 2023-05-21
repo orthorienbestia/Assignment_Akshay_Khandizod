@@ -1,6 +1,4 @@
-using System;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace _Project.Scripts
 {
@@ -52,7 +50,7 @@ namespace _Project.Scripts
             if (other.CompareTag(WallTag))
             {
                 Debug.Log("Collided with wall");
-                SceneManager.LoadScene(0);
+                SnakeGameManager.Instance.EndGame();
             }
             else if (other.CompareTag("Food"))
             {
