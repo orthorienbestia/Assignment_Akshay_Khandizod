@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using Assignment.UtilityScripts;
 using JetBrains.Annotations;
 using UnityEngine;
