@@ -12,13 +12,15 @@ namespace _Project.Scripts
     /// </summary>
     public class SnakeGameManager : MonoBehaviour
     {
-        [SerializeField] private ScoringSystem scoringSystem;
         [SerializeField] private GameObject thirdPersonCamera;
         [SerializeField] private GameObject birdViewCamera;
         [SerializeField] private Animator gameOverAnimator;
         [SerializeField] private GameObject gameOverGO;
         [SerializeField] private TMP_Text gameOverCurrentScoreTxt;
         [SerializeField] private TMP_Text gameOverHighScoreTxt;
+        
+        internal ScoringSystem scoringSystem;
+        internal FoodSpawningSystem foodSpawningSystem;
         
         public UnityEvent onGameEnded;
         public UnityEvent<FoodParameters> onFoodEat;

@@ -17,8 +17,11 @@ namespace _Project.Scripts
         
         private int _counter;
 
+        public Transform currentFoodTransform = null;
+
         private void Start()
         {
+            SnakeGameManager.Instance.foodSpawningSystem = this;
             SpawnRandomFoodItem();
             SnakeGameManager.Instance.onFoodEat.AddListener(_ => SpawnRandomFoodItem());
         }
@@ -35,6 +38,7 @@ namespace _Project.Scripts
             foodGameObject.name = $"Food Item {_counter.ToString()}";
             foodGameObject.transform.position = new Vector3(Random.Range(-spawnAreaSide/2,spawnAreaSide/2),1,Random.Range(-spawnAreaSide/2,spawnAreaSide/2));
             foodGameObject.GetComponent<FoodItem>().Initialize(randomParameter);
+            currentFoodTransform = foodGameObject.transform;
         }
 
         private void OnDrawGizmosSelected()

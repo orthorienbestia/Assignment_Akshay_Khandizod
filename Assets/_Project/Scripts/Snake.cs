@@ -11,6 +11,7 @@ namespace _Project.Scripts
         [SerializeField] private GameObject bodyPartPrefab;
         [SerializeField] private float movementSpeed = 10f;
         [SerializeField] private float rotationSpeed = 10f;
+        [SerializeField] private Transform navigatorArrow;
         
         private float _currentRotationValue;
         public void SetRotationValue(int value) => _currentRotationValue = value;
@@ -31,7 +32,7 @@ namespace _Project.Scripts
             for (var index = 0; index < _bodyParts.Count; index++)
             {
                 var bodyPart = _bodyParts[index];
-                _bodyPartsPositionHistory.Add(_thisTransform.position - _thisTransform.forward * DistanceBetweenParts*index);
+                _bodyPartsPositionHistory.Add(_thisTransform.position - _thisTransform.forward * DistanceBetweenParts*index*20);
             }
         }
 
@@ -58,13 +59,28 @@ namespace _Project.Scripts
                     Mathf.Min(i * DistanceBetweenParts, _bodyPartsPositionHistory.Count-1)];
                 _bodyParts[i].transform.position = position;
             }
+            
+            // Navigator arrow
+            const float navigatorSpeed = 10f;
+            if (SnakeGameManager.Instance.foodSpawningSystem.currentFoodTransform == null)
+            {
+                var rotation = Quaternion.LookRotation(transform.forward);
+                navigatorArrow.rotation = Quaternion.Lerp(navigatorArrow.rotation, rotation, Time.deltaTime);
+            }
+            else
+            {
+                var foodPosition = SnakeGameManager.Instance.foodSpawningSystem.currentFoodTransform.position;
+                var direction = foodPosition - transform.position;
+                var rotation = Quaternion.LookRotation(direction);
+                navigatorArrow.rotation = Quaternion.Lerp(navigatorArrow.rotation, rotation, navigatorSpeed * Time.deltaTime);
+            }
         }
 
         private List<Vector3> _bodyPartsPositionHistory = new();
         [SerializeField]
         private List<GameObject> _bodyParts = new();
         
-        private const int DistanceBetweenParts = 25;
+        private const int DistanceBetweenParts = 45;
 
         private void OnTriggerEnter(Collider other)
         {
