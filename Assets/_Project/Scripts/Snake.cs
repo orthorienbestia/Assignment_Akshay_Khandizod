@@ -80,7 +80,7 @@ namespace _Project.Scripts
         [SerializeField]
         private List<GameObject> _bodyParts = new();
         
-        private const int DistanceBetweenParts = 45;
+        private static int DistanceBetweenParts => 10;
 
         private void OnTriggerEnter(Collider other)
         {

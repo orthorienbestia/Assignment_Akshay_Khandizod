@@ -21,6 +21,8 @@ namespace _Project.Scripts
         
         private void Awake()
         {
+            Application.targetFrameRate = 60;
+            
             if (Instance != null)
             {
                 Destroy(gameObject);
