@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -32,11 +33,14 @@ namespace _Project.Scripts
             for (var index = 0; index < _bodyParts.Count; index++)
             {
                 var bodyPart = _bodyParts[index];
-                _bodyPartsPositionHistory.Add(_thisTransform.position - _thisTransform.forward * DistanceBetweenParts*index*20);
+                for (var i = 0; i < DistanceBetweenParts; i++)
+                {
+                    _bodyPartsPositionHistory.Add(_thisTransform.position - _thisTransform.forward * DistanceBetweenParts*index*20);    
+                }
             }
         }
 
-        private void Update()
+        private void FixedUpdate()
         {
             if (_isGameEnded)
             {
@@ -80,7 +84,7 @@ namespace _Project.Scripts
         [SerializeField]
         private List<GameObject> _bodyParts = new();
         
-        private static int DistanceBetweenParts => 10;
+        private static int DistanceBetweenParts => 6;
 
         private void OnTriggerEnter(Collider other)
         {

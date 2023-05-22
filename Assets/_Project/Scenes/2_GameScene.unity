@@ -524,8 +524,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bodyPartPrefab: {fileID: 4911643992508378395, guid: 7b26bca5fc8a3418ea5b83c69008756d, type: 3}
-  movementSpeed: 10
-  rotationSpeed: 250
+  movementSpeed: 8.5
+  rotationSpeed: 280
   navigatorArrow: {fileID: 757997155086226222}
   _bodyParts:
   - {fileID: 874747014}
