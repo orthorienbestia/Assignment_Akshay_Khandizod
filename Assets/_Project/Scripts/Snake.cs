@@ -17,6 +17,8 @@ namespace _Project.Scripts
         private const string FoodTag = "Food";
         private const string BodyPartTag = "Snake Body";
 
+        private bool _isGameEnded;
+
         private void Awake()
         {
             _thisTransform = transform;
@@ -32,6 +34,10 @@ namespace _Project.Scripts
 
         private void Update()
         {
+            if (_isGameEnded)
+            {
+                return;
+            }
             // Moving Forward
             var movementDirection = _thisTransform.rotation * Vector3.forward;
             _thisTransform.position += movementDirection * (movementSpeed * Time.deltaTime);
@@ -81,6 +87,7 @@ namespace _Project.Scripts
             {
                 Debug.Log("Snake collided with wall");
                 SnakeGameManager.Instance.EndGame();
+                _isGameEnded = true;
             }
             else if (other.CompareTag(FoodTag))
             {
@@ -97,6 +104,7 @@ namespace _Project.Scripts
             {
                 Debug.Log("Snake collided with body part");
                 SnakeGameManager.Instance.EndGame();
+                _isGameEnded = true;
             }
         }
     }

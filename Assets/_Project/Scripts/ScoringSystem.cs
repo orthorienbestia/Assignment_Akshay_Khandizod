@@ -1,7 +1,5 @@
-using System;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace _Project.Scripts
 {
@@ -13,13 +11,14 @@ namespace _Project.Scripts
         private int _currentScore = 0;
         private int _streakCounter = 0;
         private string _lastFoodColor = "";
-
         private int _foodEatenCounter = 0;
+
+        public int CurrentScore => _currentScore;
 
         private void Awake()
         {
             streakText.SetText("");
-
+            currentScoreText.SetText(_currentScore.ToString());
             SnakeGameManager.Instance.onFoodEat.AddListener(OnFoodEat);
         }
 
