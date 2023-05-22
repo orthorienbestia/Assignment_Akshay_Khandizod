@@ -6,6 +6,10 @@ namespace _Project.Scripts
     {
         [SerializeField]
         private FoodParameters foodParameters;
+        public FoodParameters FoodParameters => foodParameters;
+        
+        [SerializeField]
+        private Renderer foodRenderer;
 
         public void Initialize(FoodParameters parameters)
         {
@@ -16,6 +20,12 @@ namespace _Project.Scripts
         private void UpdateFoodItemColor()
         {
             Debug.Log($"Updating Food Item Color {foodParameters.GetColorFromHex().ToString()}");
+            foodRenderer.material.color = foodParameters.GetColorFromHex();
+        }
+
+        public void Eat()
+        {
+            Destroy(gameObject);
         }
     }
 }
