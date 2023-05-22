@@ -155,7 +155,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1561977301}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 45}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1532,7 +1532,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43745979e14b43b5bd9a8c5b9b83022e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  foodPrefabName: FoodItem
   foodPrefab: {fileID: 896209256311316684, guid: 12513a504935c40d891bcb8c22db9289, type: 3}
   spawnAreaSide: 64
 --- !u!4 &670662095
@@ -1971,7 +1970,7 @@ RectTransform:
   m_Children:
   - {fileID: 1353681418}
   m_Father: {fileID: 1561977301}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -3213,9 +3212,9 @@ RectTransform:
   - {fileID: 228331352}
   - {fileID: 737821504}
   - {fileID: 2124871868}
-  - {fileID: 835228302}
   - {fileID: 63402757}
   - {fileID: 1630833193}
+  - {fileID: 835228302}
   m_Father: {fileID: 333956019}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3321,7 +3320,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1561977301}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -45}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
