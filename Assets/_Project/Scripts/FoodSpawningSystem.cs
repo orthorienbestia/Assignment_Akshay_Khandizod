@@ -13,8 +13,6 @@ namespace _Project.Scripts
     public class FoodSpawningSystem : MonoBehaviour
     {
         [SerializeField]
-        private string foodPrefabName;
-        [SerializeField]
         private GameObject foodPrefab;
 
         [SerializeField] private float spawnAreaSide;
@@ -23,7 +21,8 @@ namespace _Project.Scripts
 
         private void Start()
         {
-            StartCoroutine(_SpawnFoodContinuously());
+            SpawnRandomFoodItem();
+            SnakeGameManager.Instance.onFoodEat.AddListener(_ => SpawnRandomFoodItem());
         }
 
         [UsedImplicitly]
@@ -43,15 +42,6 @@ namespace _Project.Scripts
         private void OnDrawGizmosSelected()
         {
             Gizmos.DrawCube(transform.position, new Vector3(spawnAreaSide, 0, spawnAreaSide));
-        }
-
-        IEnumerator _SpawnFoodContinuously()
-        {
-            while (true)
-            {
-                SpawnRandomFoodItem();
-                yield return new WaitForSeconds(1);
-            }
         }
     }
 }
