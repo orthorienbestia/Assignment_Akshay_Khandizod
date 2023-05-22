@@ -7,6 +7,9 @@ namespace Assignment.UtilityScripts
 {
     public static class ListExtensions
     {
+        /// <summary>
+        /// Returns random object from the list.
+        /// </summary>
         public static T GetRandomItem<T>(this List<T> list)
         {
             if (list.Count == 0)

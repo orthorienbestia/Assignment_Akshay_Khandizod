@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace _Project.Scripts
 {
+    /// <summary>
+    /// Handles Snake Movement and Collision.
+    /// </summary>
     public class Snake : MonoBehaviour
     {
         [SerializeField] private GameObject bodyPartPrefab;

@@ -2,6 +2,9 @@ using UnityEngine;
 
 namespace _Project.Scripts
 {
+    /// <summary>
+    /// Script to be attached on Food prefab.
+    /// </summary>
     public class FoodItem : MonoBehaviour
     {
         [SerializeField]

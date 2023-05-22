@@ -7,6 +7,9 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 
 namespace _Project.Scripts
 {
+    /// <summary>
+    /// Loads Food Configuration File and provide FoodParameters using Instance.
+    /// </summary>
     public class FoodConfigurationSystem : MonoBehaviour
     {
         [SerializeField] private string configJsonFileName = "FoodConfigurationData";

@@ -3,6 +3,10 @@ using UnityEngine;
 
 namespace _Project.Scripts
 {
+    /// <summary>
+    /// Handles current and high score.
+    /// Increases current score using food parameter.
+    /// </summary>
     public class ScoringSystem : MonoBehaviour
     {
         [SerializeField] private TMP_Text currentScoreText;

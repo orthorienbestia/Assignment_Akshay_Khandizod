@@ -7,6 +7,9 @@ using Random = UnityEngine.Random;
 
 namespace _Project.Scripts
 {
+    /// <summary>
+    /// Spawns random food at random position.
+    /// </summary>
     public class FoodSpawningSystem : MonoBehaviour
     {
         [SerializeField]

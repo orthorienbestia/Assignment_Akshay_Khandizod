@@ -3,6 +3,9 @@ using UnityEngine;
 // ReSharper disable once CheckNamespace
 namespace Assignment.UtilityScripts
 {
+    /// <summary>
+    /// Intermediatory/Proxy class for PlayerPrefs
+    /// </summary>
     public static class SavedVariables
     {
         public static void SetInt(string key, int value) => PlayerPrefs.SetInt(key, value);

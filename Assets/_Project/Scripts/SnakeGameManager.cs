@@ -7,6 +7,9 @@ using UnityEngine.SceneManagement;
 
 namespace _Project.Scripts
 {
+    /// <summary>
+    /// Handles snake game over and camera switching functionalities.
+    /// </summary>
     public class SnakeGameManager : MonoBehaviour
     {
         [SerializeField] private ScoringSystem scoringSystem;

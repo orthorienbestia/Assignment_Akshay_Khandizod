@@ -4,6 +4,9 @@ using UnityEngine.SceneManagement;
 // ReSharper disable once CheckNamespace
 namespace Assignment.UtilityScripts
 {
+    /// <summary>
+    /// Class helps to call load scene methods directly from inspector.
+    /// </summary>
     public class MonoSceneManager : MonoBehaviour
     {
         public void LoadScene(string sceneName)

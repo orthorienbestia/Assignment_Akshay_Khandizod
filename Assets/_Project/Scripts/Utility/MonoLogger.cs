@@ -3,6 +3,10 @@ using UnityEngine;
 // ReSharper disable once CheckNamespace
 namespace Assignment.UtilityScripts
 {
+    /// <summary>
+    /// Class helps to debug by logging text from editor.
+    /// Functions can be called in inspector from unity events and triggers.
+    /// </summary>
     public class MonoLogger : MonoBehaviour
     {
         public void Log(string text)
