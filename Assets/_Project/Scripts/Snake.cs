@@ -43,23 +43,6 @@ namespace _Project.Scripts
             _thisTransform.position += movementDirection * (movementSpeed * Time.deltaTime);
             
             // Rotation
-#if UNITY_EDITOR
-            if (!Input.GetKey(KeyCode.A) || !Input.GetKey(KeyCode.D))
-            {
-                if (Input.GetKey(KeyCode.A))
-                {
-                    _currentRotationValue = -1;
-                }
-                else if (Input.GetKey(KeyCode.D))
-                {
-                    _currentRotationValue = 1;
-                }
-                else
-                {
-                    _currentRotationValue = 0;
-                }
-            }
-#endif
             _thisTransform.Rotate(Vector3.up * (_currentRotationValue * rotationSpeed * Time.deltaTime));
             
             // Body Parts Movement
@@ -68,7 +51,6 @@ namespace _Project.Scripts
 
             for (var i = 0; i < _bodyParts.Count; i++)
             {
-                Debug.Log("^^^^^ " + Mathf.Min(i * DistanceBetweenParts, _bodyPartsPositionHistory.Count));
                 var position = _bodyPartsPositionHistory[
                     Mathf.Min(i * DistanceBetweenParts, _bodyPartsPositionHistory.Count-1)];
                 _bodyParts[i].transform.position = position;
