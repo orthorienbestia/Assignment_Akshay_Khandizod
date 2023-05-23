@@ -26,6 +26,10 @@
 - Eating same food item consecutively increases the score multiplier.
 - User can change camera view by pressing button on top left corner of the screen.
 
+## Task Breakdown:
+- Whole project was broken down into phases and completed.
+- Details are mentioned in TASK_BREAKDOWN_STRUCTURE.MD
+
 ### Code Design:
 The design used is modular and non dependent.
 
