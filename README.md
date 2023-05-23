@@ -15,6 +15,7 @@
 
 ### Links
 - [Android Build / APK] (https://github.com/orthorienbestia/Assignment_Akshay_Khandizod/releases/tag/Final_Submission)
+- [Gameplay Recording] (https://youtu.be/cw_v4XDbQdc)
 
 ### Game Summary:
 - This project is a simple 3D game where player has to collect food.
