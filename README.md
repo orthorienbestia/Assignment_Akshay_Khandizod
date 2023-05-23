@@ -13,6 +13,9 @@
   - Touch support: Added using Unity Event Trigger
   - APK: It is created, tested and provided with the project.
 
+### Links
+- [Android Build / APK] (https://github.com/orthorienbestia/Assignment_Akshay_Khandizod/releases/tag/Final_Submission)
+
 ### Game Summary:
 - This project is a simple 3D game where player has to collect food.
 - Snake moves continuously in forward direction and player can steer it left or right.
