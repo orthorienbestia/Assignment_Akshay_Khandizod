@@ -7,7 +7,7 @@
 
 ### Extra Features Added:
 - **Addressables**: Food Configuration Data JSON is loaded using addressables.
-- **Snake Navigator**: Arrow on top of snake's head is added for better navigation on map.
+- **Snake Navigator**: Arrow on top of snake's head is added for better navigation on map. The arrow always points to the last food object spawned on the map !!
 - **Cinemachine**: Camera view can be switched smoothly while inside gameplay.
 - **Android Support**: 
   - Touch support: Added using Unity Event Trigger
