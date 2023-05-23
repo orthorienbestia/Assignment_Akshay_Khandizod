@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using Assignment.UtilityScripts;
 using JetBrains.Annotations;
 using UnityEngine;
@@ -7,10 +5,11 @@ using Random = UnityEngine.Random;
 
 namespace _Project.Scripts
 {
+    /// <summary>
+    /// Spawns random food at random position.
+    /// </summary>
     public class FoodSpawningSystem : MonoBehaviour
     {
-        [SerializeField]
-        private string foodPrefabName;
         [SerializeField]
         private GameObject foodPrefab;
 
@@ -18,9 +17,13 @@ namespace _Project.Scripts
         
         private int _counter;
 
+        public Transform currentFoodTransform = null;
+
         private void Start()
         {
-            StartCoroutine(_SpawnFoodContinuously());
+            SnakeGameManager.Instance.foodSpawningSystem = this;
+            SpawnRandomFoodItem();
+            SnakeGameManager.Instance.onFoodEat.AddListener(_ => SpawnRandomFoodItem());
         }
 
         [UsedImplicitly]
@@ -35,20 +38,12 @@ namespace _Project.Scripts
             foodGameObject.name = $"Food Item {_counter.ToString()}";
             foodGameObject.transform.position = new Vector3(Random.Range(-spawnAreaSide/2,spawnAreaSide/2),1,Random.Range(-spawnAreaSide/2,spawnAreaSide/2));
             foodGameObject.GetComponent<FoodItem>().Initialize(randomParameter);
+            currentFoodTransform = foodGameObject.transform;
         }
 
         private void OnDrawGizmosSelected()
         {
             Gizmos.DrawCube(transform.position, new Vector3(spawnAreaSide, 0, spawnAreaSide));
-        }
-
-        IEnumerator _SpawnFoodContinuously()
-        {
-            while (true)
-            {
-                SpawnRandomFoodItem();
-                yield return new WaitForSeconds(1);
-            }
         }
     }
 }

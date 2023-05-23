@@ -1,8 +1,13 @@
+using System;
 using TMPro;
 using UnityEngine;
 
 namespace _Project.Scripts
 {
+    /// <summary>
+    /// Handles current and high score.
+    /// Increases current score using food parameter.
+    /// </summary>
     public class ScoringSystem : MonoBehaviour
     {
         [SerializeField] private TMP_Text currentScoreText;
@@ -19,7 +24,12 @@ namespace _Project.Scripts
         {
             streakText.SetText("");
             currentScoreText.SetText(_currentScore.ToString());
+        }
+
+        private void Start()
+        {
             SnakeGameManager.Instance.onFoodEat.AddListener(OnFoodEat);
+            SnakeGameManager.Instance.scoringSystem = this;
         }
 
         private void OnFoodEat(FoodParameters parameters)

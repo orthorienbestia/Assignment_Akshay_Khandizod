@@ -6,6 +6,9 @@ using UnityEngine;
 // ReSharper disable once CheckNamespace
 namespace Assignment.UtilityScripts
 {
+    /// <summary>
+    /// Used to set SavedVariable on TextMeshPro text.
+    /// </summary>
     [RequireComponent(typeof(TMP_Text))]
     public class SavedVariableText : MonoBehaviour
     {

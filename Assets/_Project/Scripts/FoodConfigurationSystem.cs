@@ -7,6 +7,9 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 
 namespace _Project.Scripts
 {
+    /// <summary>
+    /// Loads Food Configuration File and provide FoodParameters using Instance.
+    /// </summary>
     public class FoodConfigurationSystem : MonoBehaviour
     {
         [SerializeField] private string configJsonFileName = "FoodConfigurationData";
@@ -18,6 +21,8 @@ namespace _Project.Scripts
         
         private void Awake()
         {
+            Application.targetFrameRate = 60;
+            
             if (Instance != null)
             {
                 Destroy(gameObject);
